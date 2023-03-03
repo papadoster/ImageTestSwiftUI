@@ -11,6 +11,10 @@
 		7F566B7129AFFD4500554169 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F566B7029AFFD4500554169 /* ContentView.swift */; };
 		7F566B7329AFFD4700554169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F566B7229AFFD4700554169 /* Assets.xcassets */; };
 		7F566B7629AFFD4700554169 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F566B7529AFFD4700554169 /* Preview Assets.xcassets */; };
+		7F566B7F29B000CC00554169 /* ImageGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F566B7E29B000CC00554169 /* ImageGridItemView.swift */; };
+		7F566B8429B0098D00554169 /* DesignImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F566B8329B0098D00554169 /* DesignImageView.swift */; };
+		7F83A69C29B274840084D104 /* DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83A69B29B274840084D104 /* DesignView.swift */; };
+		7F83A69F29B299210084D104 /* DesignMiniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83A69E29B299210084D104 /* DesignMiniView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,11 @@
 		7F566B7029AFFD4500554169 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F566B7229AFFD4700554169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F566B7529AFFD4700554169 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7F566B7E29B000CC00554169 /* ImageGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridItemView.swift; sourceTree = "<group>"; };
+		7F566B8329B0098D00554169 /* DesignImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignImageView.swift; sourceTree = "<group>"; };
+		7F83A69B29B274840084D104 /* DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignView.swift; sourceTree = "<group>"; };
+		7F83A69D29B27EDE0084D104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7F83A69E29B299210084D104 /* DesignMiniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignMiniView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +60,12 @@
 		7F566B6D29AFFD4500554169 /* ImageTestSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				7F83A69D29B27EDE0084D104 /* Info.plist */,
 				7F566B6E29AFFD4500554169 /* ImageTestSwiftUIApp.swift */,
 				7F566B7029AFFD4500554169 /* ContentView.swift */,
 				7F566B7229AFFD4700554169 /* Assets.xcassets */,
 				7F566B7429AFFD4700554169 /* Preview Content */,
+				7F566B8229B0095B00554169 /* View */,
 			);
 			path = ImageTestSwiftUI;
 			sourceTree = "<group>";
@@ -65,6 +76,17 @@
 				7F566B7529AFFD4700554169 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7F566B8229B0095B00554169 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7F566B7E29B000CC00554169 /* ImageGridItemView.swift */,
+				7F566B8329B0098D00554169 /* DesignImageView.swift */,
+				7F83A69B29B274840084D104 /* DesignView.swift */,
+				7F83A69E29B299210084D104 /* DesignMiniView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F566B8429B0098D00554169 /* DesignImageView.swift in Sources */,
 				7F566B7129AFFD4500554169 /* ContentView.swift in Sources */,
+				7F83A69C29B274840084D104 /* DesignView.swift in Sources */,
+				7F83A69F29B299210084D104 /* DesignMiniView.swift in Sources */,
 				7F566B6F29AFFD4500554169 /* ImageTestSwiftUIApp.swift in Sources */,
+				7F566B7F29B000CC00554169 /* ImageGridItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,11 +296,14 @@
 				DEVELOPMENT_TEAM = 267MD9AH76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageTestSwiftUI/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "разреши сохранить фото";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,11 +328,14 @@
 				DEVELOPMENT_TEAM = 267MD9AH76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ImageTestSwiftUI/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "разреши сохранить фото";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

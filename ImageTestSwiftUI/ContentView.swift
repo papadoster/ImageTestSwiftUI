@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var images: [Int] = [100, 241, 23, 43, 5, 66, 7, 82, 200, 103, 25, 600, 55, 1, 8, 12, 4]
+    @State private var gridLayout: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVGrid(columns: gridLayout) {
+                    ForEach(images, id: \.self) { image in
+                        NavigationLink(destination: DesignImageView(image: image)) {
+                            ImageGridItemView(idImage: image)
+                                .cornerRadius(8)
+                        }
+                            
+                    }
+                }
+                .padding()
+                .padding(.bottom, 30)
+            }
+            .navigationTitle("Project")
         }
-        .padding()
+        
     }
 }
 
