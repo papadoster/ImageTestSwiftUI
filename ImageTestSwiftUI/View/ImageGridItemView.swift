@@ -12,21 +12,31 @@ struct ImageGridItemView: View {
     var idImage: Int
     
     var body: some View {
-        AsyncImage(url: URL(string: "https://picsum.photos/id/\(idImage)/200/300")) { phase in
-            
-            switch phase {
-            case .success(let image):
-                image
-                    .resizable()
-                    .scaledToFit()
-            case .empty:
-                Image(systemName: "photo.circle.fill")
-            case .failure(_):
-                Image(systemName: "ant.circle.fill")
-            default:
-                fatalError()
-            }
+//        AsyncImage(url: URL(string: "https://picsum.photos/id/\(idImage)/200/300")) { phase in
+//            
+//            switch phase {
+//            case .success(let image):
+//                image
+//                    .resizable()
+//                    .scaledToFit()
+//            case .empty:
+//                Image(systemName: "photo.circle.fill")
+//            case .failure(_):
+//                Image(systemName: "ant.circle.fill")
+//            default:
+//                fatalError()
+//            }
+//        }
+        
+        AsyncImage(url: URL(string: "https://picsum.photos/id/\(idImage)/200/300")) { image in
+            image
+                .resizable()
+                .scaledToFit()
+        } placeholder: {
+            ProgressView()
         }
+
+        
     }
 }
 

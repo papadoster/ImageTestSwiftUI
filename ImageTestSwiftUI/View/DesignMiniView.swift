@@ -64,10 +64,6 @@ struct DesignMiniView: View {
             }
         }
     }
-    
-    func fetchImage(imagePath: Int) -> Image {
-        return 
-    }
 }
     
     struct DesignMiniView_Previews: PreviewProvider {

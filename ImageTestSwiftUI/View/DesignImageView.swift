@@ -31,7 +31,9 @@ struct DesignImageView: View {
                     let imageName = image
                     let firstNameB = firstName
                     let secondNameB = secondName
+                    
                     let renderer = ImageRenderer(content: DesignView(image: imageName, secondName: secondNameB, firstName: firstNameB))
+                    
                     
                     renderer.scale = 1.0
                     
