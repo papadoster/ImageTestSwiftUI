@@ -13,64 +13,63 @@ struct DesignImageView: View {
     @State private var isFinish: Bool = false
     @State private var secondName: String = ""
     @State private var firstName: String = ""
+    @State private var quote: String = ""
     @State private var renderedImage = Image(systemName: "photo")
     @Environment(\.displayScale) var displayScale
     
     var body: some View {
-        VStack {
-            DesignMiniView(image: image, secondName: secondName, firstName: firstName)
-                .padding(5)
-            
-            VStack(alignment: .leading) {
-                TextField("Фамилия", text: $secondName)
-                    .padding(.horizontal)
-                TextField("Имя", text: $firstName)
-                    .padding(.horizontal)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
                 
-                Button {
-                    let imageName = image
-                    let firstNameB = firstName
-                    let secondNameB = secondName
+                DesignMiniView(image: image, secondName: secondName, firstName: firstName, quote: quote)
+                    .padding(5)
+                    .padding(.top, 150)
+                
+                VStack(alignment: .leading) {
+                    TextField("Фамилия", text: $secondName)
+                        .padding(.horizontal)
+                    TextField("Имя", text: $firstName)
+                        .padding(.horizontal)
+                    TextField("Цитата", text: $quote)
+                        .padding(.horizontal)
+            
                     
-                    let renderer = ImageRenderer(content: DesignView(image: imageName, secondName: secondNameB, firstName: firstNameB))
-                    
-                    
-                    renderer.scale = 1.0
-                    
-                    if let uiImage = renderer.uiImage {
-                        DispatchQueue.global(qos: .utility).async {
-                            UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+                    HStack {
+                        Spacer()
+                        Button {
+                            let imageName = image
+                            let firstNameB = firstName
+                            let secondNameB = secondName
+                            
+                            let renderer = ImageRenderer(content: DesignView(image: imageName, secondName: secondNameB, firstName: firstNameB, quote: quote))
+                            
+                            
+                            renderer.scale = 1.0
+                            
+                            if let uiImage = renderer.uiImage {
+                                DispatchQueue.global(qos: .utility).async {
+                                    UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+                                }
+                            }
+                        } label: {
+                            Text("Готово")
+                                .font(.system(.largeTitle))
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 30)
+                                .padding(.vertical, 10)
                         }
+                        .background(Color.blue)
+                        .cornerRadius(30)
+                    .padding()
+                        Spacer()
                     }
-                } label: {
-                    Text("Finish")
+                    
                 }
-                .padding()
+                .padding(.top)
                 
-                
-//                ShareLink("Export", item: renderedImage, preview: SharePreview(Text("image-\(image)-\(secondName)"), image: renderedImage))
-//                    .padding(.horizontal)
             }
-//            .onChange(of: isFinish) { _ in render() }
-            .padding(.top)
-            
-            
-            
         }
     }
-    
-//    @MainActor func render() {
-//        let imageName = image
-//        let firstNameB = firstName
-//        let secondNameB = secondName
-//        let renderer = ImageRenderer(content: DesignView(image: imageName, secondName: secondNameB, firstName: firstNameB))
-//
-//        renderer.scale = 1.0
-//
-//        if let uiImage = renderer.uiImage {
-//            renderedImage = Image(uiImage: uiImage)
-//        }
-//    }
 }
 
 struct DesignImageView_Previews: PreviewProvider {
@@ -80,20 +79,3 @@ struct DesignImageView_Previews: PreviewProvider {
             .padding()
     }
 }
-
-//extension View {
-//    func snapshot() -> UIImage {
-//        let controller = UIHostingController(rootView: self)
-//        let view = controller.view
-//
-//        let targetSize = controller.view.intrinsicContentSize
-//        view?.bounds = CGRect(origin: .zero, size: targetSize)
-//        view?.backgroundColor = .clear
-//
-//        let renderer = UIGraphicsImageRenderer(size: targetSize)
-//
-//        return renderer.image { _ in
-//            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
-//        }
-//    }
-//}

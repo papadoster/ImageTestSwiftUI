@@ -15,9 +15,12 @@ struct ImageView: View {
     }
     
     var body: some View {
-        Image(uiImage: urlImageModel.image ?? ImageView.defaultImage!)
-            .resizable()
-            .scaledToFit()
+        if urlImageModel.image != nil { Image(uiImage: urlImageModel.image!)
+                .resizable()
+                .scaledToFit()
+        } else {
+            Image(systemName: "photo.circle.fill")
+        }
     }
     
     static var defaultImage = UIImage(named: "NewsIcon")

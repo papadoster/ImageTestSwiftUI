@@ -13,6 +13,7 @@ struct DesignView: View {
     var image: Int
     var secondName: String
     var firstName: String
+    var quote: String
 
     @StateObject private var imageTwo = FetchImage()
     
@@ -27,7 +28,7 @@ struct DesignView: View {
             //              .resizable()
             //              .aspectRatio(contentMode: .fit)
             
-            Text("Мечты сбываются, только если ты идëшь им навстречу с открытыми глазами")
+            Text(quote == "" ? "Мечты сбываются, только если ты идëшь им навстречу с открытыми глазами" : quote)
                 .font(.system(size: 64))
                 .fontWeight(.light)
                 .multilineTextAlignment(.leading)
@@ -46,10 +47,11 @@ struct DesignView: View {
                     .position(x: 3650, y: 2530)
             
             HStack {
-                ImageView(urlString: "https://picsum.photos/id/\(image)/200/300")
-                    .frame(height: 215)
-                    .offset(x: -50, y: -0)
-                    .padding(.leading, 20)
+                ImageView(urlString: "https://picsum.photos/id/\(image)/2000/3000")
+                    .frame(width: 2000, height: 3000, alignment: .leading)
+                    .position(x: 1300, y: 130)
+//                    .offset(x: -50, y: -0)
+//                    .padding(.leading, 20)
 
                 
                 
@@ -66,7 +68,7 @@ struct DesignView: View {
 
 struct DesignView_Previews: PreviewProvider {
     static var previews: some View {
-        DesignView(image: 100, secondName: "", firstName: "")
+        DesignView(image: 100, secondName: "", firstName: "", quote: "")
             .previewLayout(.sizeThatFits)
     }
 }
