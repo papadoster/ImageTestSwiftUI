@@ -6,14 +6,21 @@
 //
 
 import SwiftUI
+import NukeUI
 
 struct ImageGridItemView: View {
     
     var idImage: Int
+    var url: URL {
+        URL(string: "https://picsum.photos/id/\(idImage)/200/300")!
+    }
+    
+    @StateObject private var imageTwo = FetchImage()
+        
     
     var body: some View {
 //        AsyncImage(url: URL(string: "https://picsum.photos/id/\(idImage)/200/300")) { phase in
-//            
+//
 //            switch phase {
 //            case .success(let image):
 //                image
@@ -28,16 +35,26 @@ struct ImageGridItemView: View {
 //            }
 //        }
         
-        AsyncImage(url: URL(string: "https://picsum.photos/id/\(idImage)/200/300")) { image in
-            image
+//        AsyncImage(url: URL(string: "https://picsum.photos/id/\(idImage)/200/300")) { image in
+//            image
+//                .resizable()
+//                .scaledToFit()
+//        } placeholder: {
+//            ProgressView()
+//        }
+        ZStack {
+            imageTwo.view?
                 .resizable()
                 .scaledToFit()
-        } placeholder: {
-            ProgressView()
         }
-
-        
+        .onAppear {
+            imageTwo.load(url)
+            
+        }
+        .onChange(of: url) { imageTwo.load($0) }
+//        .onDisappear { imageTwo.reset() }
     }
+        
 }
 
 struct ImageGridItemView_Previews: PreviewProvider {

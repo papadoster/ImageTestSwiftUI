@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F4A8B7E29B2BAEB002181FF /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A8B7D29B2BAEB002181FF /* ImageModel.swift */; };
+		7F4A8B8029B2BEA4002181FF /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A8B7F29B2BEA4002181FF /* ImageView.swift */; };
 		7F566B6F29AFFD4500554169 /* ImageTestSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F566B6E29AFFD4500554169 /* ImageTestSwiftUIApp.swift */; };
 		7F566B7129AFFD4500554169 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F566B7029AFFD4500554169 /* ContentView.swift */; };
 		7F566B7329AFFD4700554169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F566B7229AFFD4700554169 /* Assets.xcassets */; };
@@ -15,9 +17,14 @@
 		7F566B8429B0098D00554169 /* DesignImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F566B8329B0098D00554169 /* DesignImageView.swift */; };
 		7F83A69C29B274840084D104 /* DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83A69B29B274840084D104 /* DesignView.swift */; };
 		7F83A69F29B299210084D104 /* DesignMiniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83A69E29B299210084D104 /* DesignMiniView.swift */; };
+		7F83A6A229B2B43E0084D104 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 7F83A6A129B2B43E0084D104 /* Nuke */; };
+		7F83A6A429B2B43E0084D104 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 7F83A6A329B2B43E0084D104 /* NukeExtensions */; };
+		7F83A6A629B2B43E0084D104 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7F83A6A529B2B43E0084D104 /* NukeUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F4A8B7D29B2BAEB002181FF /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		7F4A8B7F29B2BEA4002181FF /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		7F566B6B29AFFD4500554169 /* ImageTestSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTestSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F566B6E29AFFD4500554169 /* ImageTestSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTestSwiftUIApp.swift; sourceTree = "<group>"; };
 		7F566B7029AFFD4500554169 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F83A6A629B2B43E0084D104 /* NukeUI in Frameworks */,
+				7F83A6A229B2B43E0084D104 /* Nuke in Frameworks */,
+				7F83A6A429B2B43E0084D104 /* NukeExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +76,7 @@
 				7F566B7229AFFD4700554169 /* Assets.xcassets */,
 				7F566B7429AFFD4700554169 /* Preview Content */,
 				7F566B8229B0095B00554169 /* View */,
+				7F4A8B7D29B2BAEB002181FF /* ImageModel.swift */,
 			);
 			path = ImageTestSwiftUI;
 			sourceTree = "<group>";
@@ -85,6 +96,7 @@
 				7F566B8329B0098D00554169 /* DesignImageView.swift */,
 				7F83A69B29B274840084D104 /* DesignView.swift */,
 				7F83A69E29B299210084D104 /* DesignMiniView.swift */,
+				7F4A8B7F29B2BEA4002181FF /* ImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +117,11 @@
 			dependencies = (
 			);
 			name = ImageTestSwiftUI;
+			packageProductDependencies = (
+				7F83A6A129B2B43E0084D104 /* Nuke */,
+				7F83A6A329B2B43E0084D104 /* NukeExtensions */,
+				7F83A6A529B2B43E0084D104 /* NukeUI */,
+			);
 			productName = ImageTestSwiftUI;
 			productReference = 7F566B6B29AFFD4500554169 /* ImageTestSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -133,6 +150,9 @@
 				Base,
 			);
 			mainGroup = 7F566B6229AFFD4400554169;
+			packageReferences = (
+				7F83A6A029B2B43E0084D104 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = 7F566B6C29AFFD4500554169 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -159,12 +179,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F4A8B8029B2BEA4002181FF /* ImageView.swift in Sources */,
 				7F566B8429B0098D00554169 /* DesignImageView.swift in Sources */,
 				7F566B7129AFFD4500554169 /* ContentView.swift in Sources */,
 				7F83A69C29B274840084D104 /* DesignView.swift in Sources */,
 				7F83A69F29B299210084D104 /* DesignMiniView.swift in Sources */,
 				7F566B6F29AFFD4500554169 /* ImageTestSwiftUIApp.swift in Sources */,
 				7F566B7F29B000CC00554169 /* ImageGridItemView.swift in Sources */,
+				7F4A8B7E29B2BAEB002181FF /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +393,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7F83A6A029B2B43E0084D104 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = exactVersion;
+				version = 11.6.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7F83A6A129B2B43E0084D104 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F83A6A029B2B43E0084D104 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		7F83A6A329B2B43E0084D104 /* NukeExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F83A6A029B2B43E0084D104 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeExtensions;
+		};
+		7F83A6A529B2B43E0084D104 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F83A6A029B2B43E0084D104 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7F566B6329AFFD4400554169 /* Project object */;
 }

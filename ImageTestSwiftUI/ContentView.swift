@@ -13,15 +13,33 @@ struct ContentView: View {
     @State private var gridLayout: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
     
     var body: some View {
+//        NavigationStack {
+//            ScrollView(.vertical, showsIndicators: false) {
+//                LazyVGrid(columns: gridLayout) {
+//                    ForEach(images, id: \.self) { image in
+//                        NavigationLink(destination: DesignImageView(image: image)) {
+//                            ImageGridItemView(idImage: image)
+//                                .cornerRadius(8)
+//                        }
+//
+//                    }
+//                }
+//                .padding()
+//                .padding(.bottom, 30)
+//            }
+//            .navigationTitle("Project")
+//        }
+        
+        
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: gridLayout) {
                     ForEach(images, id: \.self) { image in
                         NavigationLink(destination: DesignImageView(image: image)) {
-                            ImageGridItemView(idImage: image)
+                            ImageView(urlString: "https://picsum.photos/id/\(image)/200/300")
                                 .cornerRadius(8)
                         }
-                            
+
                     }
                 }
                 .padding()
@@ -29,6 +47,7 @@ struct ContentView: View {
             }
             .navigationTitle("Project")
         }
+        
         
     }
 }

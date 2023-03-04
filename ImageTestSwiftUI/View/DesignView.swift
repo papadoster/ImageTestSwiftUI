@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import NukeUI
 
 struct DesignView: View {
     
     var image: Int
     var secondName: String
     var firstName: String
+
+    @StateObject private var imageTwo = FetchImage()
     
     var body: some View {
         ZStack {
@@ -43,11 +46,12 @@ struct DesignView: View {
                     .position(x: 3650, y: 2530)
             
             HStack {
-                ImageGridItemView(idImage: image)
+                ImageView(urlString: "https://picsum.photos/id/\(image)/200/300")
                     .frame(height: 215)
                     .offset(x: -50, y: -0)
                     .padding(.leading, 20)
 
+                
                 
                 
             }

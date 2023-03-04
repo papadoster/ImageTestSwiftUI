@@ -23,7 +23,7 @@ struct DesignMiniView: View {
             //              .aspectRatio(contentMode: .fit)
             
             HStack {
-                ImageGridItemView(idImage: image)
+                ImageView(urlString: "https://picsum.photos/id/\(image)/200/300")
                     .frame(height: 215)
                     .offset(x: -50, y: -0)
                     .padding(.leading, 20)
