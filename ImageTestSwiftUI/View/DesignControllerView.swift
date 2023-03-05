@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DesignImageView: View {
+struct DesignControllerView: View {
     
     var image: Int
     @State private var isFinish: Bool = false
@@ -22,8 +22,8 @@ struct DesignImageView: View {
             VStack {
                 
                 DesignMiniView(image: image, secondName: secondName, firstName: firstName, quote: quote)
-                    .padding(5)
-                    .padding(.top, 150)
+                    .padding()
+                    .padding(.top, 100)
                 
                 VStack(alignment: .leading) {
                     TextField("Фамилия", text: $secondName)
@@ -41,7 +41,7 @@ struct DesignImageView: View {
                             let firstNameB = firstName
                             let secondNameB = secondName
                             
-                            let renderer = ImageRenderer(content: DesignView(image: imageName, secondName: secondNameB, firstName: firstNameB, quote: quote))
+                            let renderer = ImageRenderer(content: DesignBigView(image: imageName, secondName: secondNameB, firstName: firstNameB, quote: quote))
                             
                             
                             renderer.scale = 1.0
@@ -72,9 +72,9 @@ struct DesignImageView: View {
     }
 }
 
-struct DesignImageView_Previews: PreviewProvider {
+struct DesignControllerView_Previews: PreviewProvider {
     static var previews: some View {
-        DesignImageView(image: 1)
+        DesignControllerView(image: 1)
             .previewLayout(.sizeThatFits)
             .padding()
     }

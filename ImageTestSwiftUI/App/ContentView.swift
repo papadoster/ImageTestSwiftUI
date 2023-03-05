@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    let schoolName: String
     @State private var images: [Int] = [100, 241, 23, 43, 5, 66, 7, 82, 200, 103, 25, 600, 55, 1, 8, 12, 4]
     @State private var gridLayout: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
     
@@ -35,7 +36,7 @@ struct ContentView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: gridLayout) {
                     ForEach(images, id: \.self) { image in
-                        NavigationLink(destination: DesignImageView(image: image)) {
+                        NavigationLink(destination: DesignControllerView(image: image)) {
                             ImageView(urlString: "https://picsum.photos/id/\(image)/200/300")
                                 .cornerRadius(8)
                         }
@@ -45,7 +46,7 @@ struct ContentView: View {
                 .padding()
                 .padding(.bottom, 30)
             }
-            .navigationTitle("Project")
+            .navigationTitle(schoolName)
         }
         
         
@@ -54,6 +55,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(schoolName: "Project")
     }
 }

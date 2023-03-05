@@ -19,7 +19,7 @@ struct ImageView: View {
                 .resizable()
                 .scaledToFit()
         } else {
-            Image(systemName: "photo.circle.fill")
+            ProgressView()
         }
     }
     

@@ -6,27 +6,18 @@
 //
 
 import SwiftUI
-import NukeUI
 
-struct DesignView: View {
+struct DesignBigView: View {
     
     var image: Int
     var secondName: String
     var firstName: String
     var quote: String
-
-    @StateObject private var imageTwo = FetchImage()
     
     var body: some View {
         ZStack {
             Image("back-m")
                 .resizable()
-            
-            //                .aspectRatio(contentMode: .fit)
-            
-            //          Image("001-01")
-            //              .resizable()
-            //              .aspectRatio(contentMode: .fit)
             
             Text(quote == "" ? "Мечты сбываются, только если ты идëшь им навстречу с открытыми глазами" : quote)
                 .font(.system(size: 64))
@@ -50,25 +41,16 @@ struct DesignView: View {
                 ImageView(urlString: "https://picsum.photos/id/\(image)/2000/3000")
                     .frame(width: 2000, height: 3000, alignment: .leading)
                     .position(x: 1300, y: 130)
-//                    .offset(x: -50, y: -0)
-//                    .padding(.leading, 20)
-
-                
-                
                 
             }
             .frame(maxHeight: 250)
-            
-            
-            
         }
-        
     }
 }
 
-struct DesignView_Previews: PreviewProvider {
+struct DesignBigView_Previews: PreviewProvider {
     static var previews: some View {
-        DesignView(image: 100, secondName: "", firstName: "", quote: "")
+        DesignBigView(image: 100, secondName: "", firstName: "", quote: "")
             .previewLayout(.sizeThatFits)
     }
 }
