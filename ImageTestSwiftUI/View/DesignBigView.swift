@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DesignBigView: View {
     
-    var image: Int
+    var image: String
     var secondName: String
     var firstName: String
     var quote: String
@@ -38,7 +38,7 @@ struct DesignBigView: View {
                     .position(x: 3650, y: 2530)
             
             HStack {
-                ImageView(urlString: "https://picsum.photos/id/\(image)/2000/3000")
+                ImageView(urlString: image)
                     .frame(width: 2000, height: 3000, alignment: .leading)
                     .position(x: 1300, y: 130)
                 
@@ -50,7 +50,7 @@ struct DesignBigView: View {
 
 struct DesignBigView_Previews: PreviewProvider {
     static var previews: some View {
-        DesignBigView(image: 100, secondName: "", firstName: "", quote: "")
+        DesignBigView(image: "https://firebasestorage.googleapis.com/v0/b/imagetestswiftui.appspot.com/o/409a%2Fportraits%2F0921.jpg?alt=media&token=b809d946-f63e-42d9-9012-11972179f8a0", secondName: "", firstName: "", quote: "")
             .previewLayout(.sizeThatFits)
     }
 }

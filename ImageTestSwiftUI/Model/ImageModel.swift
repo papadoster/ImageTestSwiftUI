@@ -43,6 +43,7 @@ class UrlImageModel: ObservableObject {
     }
     
     func loadImageFromUrl() {
+        
         guard let urlString = urlString else {
             return
         }

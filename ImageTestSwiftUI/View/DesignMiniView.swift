@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DesignMiniView: View {
-    var image: Int
+    var image: String
     var secondName: String
     var firstName: String
     var quote: String
@@ -25,8 +25,8 @@ struct DesignMiniView: View {
             //              .aspectRatio(contentMode: .fit)
             
             HStack {
-                ImageView(urlString: "https://picsum.photos/id/\(image)/2000/3000")
-                    .frame(height: 215)
+                ImageView(urlString: image)
+                    .frame(width: 162)
                     .offset(x: -50, y: -0)
                     .padding(.leading, 20)
                 
@@ -74,6 +74,6 @@ struct DesignMiniView: View {
     
     struct DesignMiniView_Previews: PreviewProvider {
         static var previews: some View {
-            DesignMiniView(image: 1, secondName: "", firstName: "", quote: "")
+            DesignMiniView(image: "https://firebasestorage.googleapis.com/v0/b/imagetestswiftui.appspot.com/o/409a%2Fportraits%2F0921.jpg?alt=media&token=b809d946-f63e-42d9-9012-11972179f8a0", secondName: "", firstName: "", quote: "")
         }
     }

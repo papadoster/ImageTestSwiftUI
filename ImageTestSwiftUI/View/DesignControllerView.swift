@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DesignControllerView: View {
     
-    var image: Int
+    var image: String
     @State private var isFinish: Bool = false
     @State private var secondName: String = ""
     @State private var firstName: String = ""
@@ -74,7 +74,7 @@ struct DesignControllerView: View {
 
 struct DesignControllerView_Previews: PreviewProvider {
     static var previews: some View {
-        DesignControllerView(image: 1)
+        DesignControllerView(image: "https://firebasestorage.googleapis.com/v0/b/imagetestswiftui.appspot.com/o/409a%2Fportraits%2F0921.jpg?alt=media&token=b809d946-f63e-42d9-9012-11972179f8a0")
             .previewLayout(.sizeThatFits)
             .padding()
     }
