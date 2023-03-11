@@ -31,11 +31,20 @@ struct LogInView: View {
                 .padding(.bottom, 20)
                 
             
-            TextField("Идентификатор", text: $loginTextField)
-                .frame(width: 200)
-            TextField("Пароль", text: $passwordTextField)
-                .frame(width: 200)
-                .padding(.bottom)
+            VStack {
+                GroupBox{
+                    TextField(text: $loginTextField, prompt: Text("Идентификатор")) {
+                        //                    Text("Username")
+                    }
+                }
+                GroupBox{
+                    SecureField(text: $passwordTextField, prompt: Text("Пароль")) {
+                        //                    Text("Password")
+                    }
+                }
+            }
+            .padding(.horizontal, 40)
+            .padding(.vertical)
             
             Button {
                 var fillEmail: String?
@@ -49,6 +58,7 @@ struct LogInView: View {
                     Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                         if let e = error {
                             print(e.localizedDescription)
+                            
                         } else {
                             isSignIn = true
                             schoolId = loginTextField
@@ -61,21 +71,16 @@ struct LogInView: View {
                     .font(.title3)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 30)
+                    .padding(.vertical, 15)
                     .background(
                         Color.yellow
                     )
-                    .cornerRadius(20)
+                    .cornerRadius(10)
             }
 
         }
         .padding()
-//        .alert(isPresented: showAlert, error: <#T##LocalizedError?#>) { <#LocalizedError#> in
-//            <#code#>
-//        } message: { <#LocalizedError#> in
-//            <#code#>
-//        }
 
     }
 }

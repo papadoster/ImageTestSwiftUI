@@ -17,16 +17,16 @@ struct DesignMiniView: View {
         ZStack {
             Image("back-m")
                 .resizable()
-//                .aspectRatio(contentMode: .fit)
-                .scaledToFit()
+                .aspectRatio(contentMode: .fit)
+//                .scaledToFit()
             
-            //          Image("001-01")
-            //              .resizable()
-            //              .aspectRatio(contentMode: .fit)
+//                      Image("001-01")
+//                          .resizable()
+//                          .aspectRatio(contentMode: .fit)
             
             HStack {
                 ImageView(urlString: image)
-                    .frame(width: 162)
+                    .frame(height: 200)
                     .offset(x: -50, y: -0)
                     .padding(.leading, 20)
                 
@@ -34,17 +34,15 @@ struct DesignMiniView: View {
                 
                 VStack(alignment: .leading, spacing: 0) {
                     Spacer()
-                    Text(quote == "" ? "Мечты сбываются, только если ты идëшь им навстречу с открытыми глазами" : quote)
-                        .font(.system(size: 6))
-//                        .frame(alignment: .leading)
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(.black)
-                        .fontWeight(.light)
-                        
-//                        .frame(width: 689, height: 174, alignment: .leading)
-//                        .position(x: 2307, y: 906)
-                        .frame(maxWidth: 80)
-                        .offset(x: -21, y: 8)
+                    HStack {
+                        Text(quote == "" ? "Мечты сбываются, только если ты идëшь им навстречу с открытыми глазами" : quote)
+                            .font(.system(size: 6))
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(.black)
+                            .fontWeight(.light)
+                            .frame(maxWidth: 80, alignment: .leading)
+                    }
+                    .offset(x: -17, y: 10)
                     
                     Spacer()
                     
@@ -59,7 +57,7 @@ struct DesignMiniView: View {
                             .foregroundColor(.black)
                         
                     }
-                    .offset(x: -10, y: 4)
+                    .offset(x: -5, y: 6)
                     
                     Spacer()
                 }
@@ -74,6 +72,7 @@ struct DesignMiniView: View {
     
     struct DesignMiniView_Previews: PreviewProvider {
         static var previews: some View {
-            DesignMiniView(image: "https://firebasestorage.googleapis.com/v0/b/imagetestswiftui.appspot.com/o/409a%2Fportraits%2F0921.jpg?alt=media&token=b809d946-f63e-42d9-9012-11972179f8a0", secondName: "", firstName: "", quote: "")
+            DesignMiniView(image: "https://firebasestorage.googleapis.com:443/v0/b/imagetestswiftui.appspot.com/o/409a%2Fportraits%2Fmini%2F1201.jpg?alt=media&token=f63afc39-14b9-47cd-8b4d-bc410f771e2e", secondName: "", firstName: "", quote: "")
+                .previewLayout(.sizeThatFits)
         }
     }
