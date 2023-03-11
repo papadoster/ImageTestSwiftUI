@@ -12,6 +12,8 @@ import FirebaseAuth
 
 struct DesignControllerView: View {
     
+    @AppStorage("isSafeDataToggle") var isSafeDataToggle: Bool = false
+    
     var image: String
     var imageName: String
     @State private var isFinish: Bool = false
@@ -19,59 +21,70 @@ struct DesignControllerView: View {
     @State private var firstName: String = ""
     @State private var quote: String = ""
     
-    @State private var secondNameSaved: String = ""
-    @State private var firstNameSaved: String = ""
-    @State private var quoteSaved: String = ""
+//    @State private var secondNameSaved: String = ""
+//    @State private var firstNameSaved: String = ""
+//    @State private var quoteSaved: String = ""
     
     @State private var renderedImage = Image(systemName: "photo")
     @Environment(\.displayScale) var displayScale
     
     let db = Firestore.firestore()
+
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 
-                DesignMiniView(image: image, secondName: secondNameSaved.isEmpty ?  secondName : secondNameSaved, firstName: firstNameSaved.isEmpty ? firstName : firstNameSaved, quote: quoteSaved.isEmpty ? quote : quoteSaved)
+                DesignMiniView(imageName: imageName,
+                               image: image,
+                               secondName: secondName,
+                               firstName: firstName,
+                               quote: quote)
                     .padding()
                     .padding(.top, 100)
                 
                 VStack(alignment: .leading) {
-                    TextField("Фамилия", text: $secondName)
+                    GroupBox {
+                        TextField("Фамилия", text: $secondName)
+                    }
+                    .padding(.horizontal)
+                    GroupBox {
+                        TextField("Имя", text: $firstName)
+                    }
                         .padding(.horizontal)
-                    TextField("Имя", text: $firstName)
+                    GroupBox {
+                        TextField("Цитата", text: $quote)
+                    }
                         .padding(.horizontal)
-                    TextField("Цитата", text: $quote)
-                        .padding(.horizontal)
-            
+                    
                     
                     HStack {
                         Spacer()
-//                        Button {
-//                            let imageName = image
-//                            let firstNameB = firstName
-//                            let secondNameB = secondName
-//
-//                            let renderer = ImageRenderer(content: DesignBigView(image: imageName, secondName: secondNameB, firstName: firstNameB, quote: quote))
-//
-//
-//                            renderer.scale = 1.0
-//
-//                            if let uiImage = renderer.uiImage {
-//                                DispatchQueue.global(qos: .utility).async {
-//                                    UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
-//                                }
-//                            }
-//                        } label: {
-//                            Text("Готово")
-//                                .font(.system(.title))
-//                                .foregroundColor(.white)
-//                                .padding(.horizontal, 20)
-//                                .padding(.vertical, 10)
-//                        }
-//                        .background(Color.blue)
-//                        .cornerRadius(30)
-//                    .padding()
+                        //                        Button {
+                        //                            let imageName = image
+                        //                            let firstNameB = firstName
+                        //                            let secondNameB = secondName
+                        //
+                        //                            let renderer = ImageRenderer(content: DesignBigView(image: imageName, secondName: secondNameB, firstName: firstNameB, quote: quote))
+                        //
+                        //
+                        //                            renderer.scale = 1.0
+                        //
+                        //                            if let uiImage = renderer.uiImage {
+                        //                                DispatchQueue.global(qos: .utility).async {
+                        //                                    UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+                        //                                }
+                        //                            }
+                        //                        } label: {
+                        //                            Text("Готово")
+                        //                                .font(.system(.title))
+                        //                                .foregroundColor(.white)
+                        //                                .padding(.horizontal, 20)
+                        //                                .padding(.vertical, 10)
+                        //                        }
+                        //                        .background(Color.blue)
+                        //                        .cornerRadius(30)
+                        //                    .padding()
                         
                         
                         Button {
@@ -84,6 +97,7 @@ struct DesignControllerView: View {
                                         "FirstName" : firstName,
                                         "SecondName" : secondName,
                                         "quote" : quote
+                                        
                                     ]) { error in
                                         if let e = error {
                                             print("error with save data in FStore \(e)")
@@ -91,6 +105,10 @@ struct DesignControllerView: View {
                                             print("Sucsessfully saved data")
                                         }
                                     }
+                                    firstName = ""
+                                    secondName = ""
+                                    quote = ""
+                                    isSafeDataToggle = true
                                 }
                             }
                             

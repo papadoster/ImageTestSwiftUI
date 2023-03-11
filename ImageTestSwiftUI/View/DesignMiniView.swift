@@ -6,12 +6,44 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 struct DesignMiniView: View {
+    
+    @AppStorage("isSafeDataToggle") var isSafeDataToggle: Bool = false
+    var imageName: String
     var image: String
     var secondName: String
     var firstName: String
     var quote: String
+    
+    @State private var secondNameSaved: String = "Фамилия"
+    @State private var firstNameSaved: String = "Имя"
+    @State private var quoteSaved: String = "Мечты сбываются, только если ты идëшь им навстречу с открытыми глазами"
+    
+    let db = Firestore.firestore()
+    
+    func loadData() {
+        if let school = Auth.auth().currentUser?.email {
+            
+            db.collection(school).document(imageName).getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                    print("Document data: \(dataDescription)")
+                    
+                    firstNameSaved = "\(document["FirstName"] ?? "")"
+                    secondNameSaved = "\(document["SecondName"] ?? "")"
+                    quoteSaved = "\(document["quote"] ?? "")"
+                    
+                } else {
+                    print("Document does not exist")
+                }
+            }
+            
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -35,7 +67,7 @@ struct DesignMiniView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     Spacer()
                     HStack {
-                        Text(quote == "" ? "Мечты сбываются, только если ты идëшь им навстречу с открытыми глазами" : quote)
+                        Text(quote.isEmpty ? quoteSaved : quote)
                             .font(.system(size: 6))
                             .multilineTextAlignment(.leading)
                             .foregroundColor(.black)
@@ -47,11 +79,11 @@ struct DesignMiniView: View {
                     Spacer()
                     
                     VStack(alignment: .leading) {
-                        Text(firstName == "" ? "Имя".uppercased() : firstName.uppercased())
+                        Text(firstName.isEmpty ? firstNameSaved.uppercased() : firstName.uppercased())
                             .font(.system(size: 12))
                             .fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text(secondName == "" ? "Фамилия".uppercased() : secondName.uppercased())
+                        Text(secondName.isEmpty ? secondNameSaved.uppercased() : secondName.uppercased())
                             .font(.system(size: 12))
                             .fontWeight(.heavy)
                             .foregroundColor(.black)
@@ -67,12 +99,19 @@ struct DesignMiniView: View {
                 
             }
         }
+        .onChange(of: isSafeDataToggle, perform: { _ in
+            loadData()
+            isSafeDataToggle = false
+        })
+        .onAppear {
+            loadData()
+        }
     }
 }
     
     struct DesignMiniView_Previews: PreviewProvider {
         static var previews: some View {
-            DesignMiniView(image: "https://firebasestorage.googleapis.com:443/v0/b/imagetestswiftui.appspot.com/o/409a%2Fportraits%2Fmini%2F1201.jpg?alt=media&token=f63afc39-14b9-47cd-8b4d-bc410f771e2e", secondName: "", firstName: "", quote: "")
+            DesignMiniView(imageName: "", image: "https://firebasestorage.googleapis.com:443/v0/b/imagetestswiftui.appspot.com/o/409a%2Fportraits%2Fmini%2F1201.jpg?alt=media&token=f63afc39-14b9-47cd-8b4d-bc410f771e2e", secondName: "", firstName: "", quote: "")
                 .previewLayout(.sizeThatFits)
         }
     }

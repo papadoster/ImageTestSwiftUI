@@ -23,45 +23,6 @@ struct ContentView: View {
     @State private var filepathsKeys: [String] = []
     @State private var filepathsUrls: [String] = []
     
-    func filePath(_ sch: String) {
-        
-        var finalUrls: [String: String] = [:]
-        
-        let storageReference = Storage.storage().reference(forURL: "gs://imagetestswiftui.appspot.com/\((sch))/portraits/mini")
-        storageReference.listAll { (res, error) in
-            if let error = error {
-                // ...
-                print((error.localizedDescription))
-            }
-
-            guard let result = res else {
-                fatalError()
-            }
-
-            for item in result.items {
-                // The items under storageReference.
-                let storage = Storage.storage().reference(forURL: "\(item)")
-                storage.downloadURL { url, error in
-                    if error != nil {
-                        print((error?.localizedDescription)!)
-                        return
-                    }
-
-//                    finalUrls.append("\(url!)")
-                    var itemString = "\(item)"
-                    var stringArr = itemString.components(separatedBy: "/")
-                    var nameOfPhoto = stringArr.last
-                        finalUrls["\(nameOfPhoto!)"] = ("\(url!)")
-                        print(finalUrls)
-                        filepaths = finalUrls
-                    filepathsKeys = [String](filepaths.keys)
-                    filepathsUrls = [String](filepaths.values)
-                }
-            }
-        }
-    }
-    
-    
     
     var body: some View {
 
@@ -110,6 +71,46 @@ struct ContentView: View {
         }
         .onAppear {
             filePath(schoolName)
+        }
+    }
+    
+    //MARK: - Methods
+    
+    func filePath(_ sch: String) {
+        
+        var finalUrls: [String: String] = [:]
+        
+        let storageReference = Storage.storage().reference(forURL: "gs://imagetestswiftui.appspot.com/\((sch))/portraits/mini")
+        storageReference.listAll { (res, error) in
+            if let error = error {
+                // ...
+                print((error.localizedDescription))
+            }
+
+            guard let result = res else {
+                fatalError()
+            }
+
+            for item in result.items {
+                // The items under storageReference.
+                let storage = Storage.storage().reference(forURL: "\(item)")
+                storage.downloadURL { url, error in
+                    if error != nil {
+                        print((error?.localizedDescription)!)
+                        return
+                    }
+
+//                    finalUrls.append("\(url!)")
+                    let itemString = "\(item)"
+                    let stringArr = itemString.components(separatedBy: "/")
+                    let nameOfPhoto = stringArr.last
+                        finalUrls["\(nameOfPhoto!)"] = ("\(url!)")
+                        print(finalUrls)
+                        filepaths = finalUrls
+                    filepathsKeys = [String](filepaths.keys)
+                    filepathsUrls = [String](filepaths.values)
+                }
+            }
         }
     }
 }
