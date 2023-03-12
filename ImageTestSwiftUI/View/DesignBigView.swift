@@ -38,7 +38,7 @@ struct DesignBigView: View {
                     .position(x: 3650, y: 2530)
             
             HStack {
-                ImageView(urlString: image)
+                ImageView(urlString: image, imageName: "0921.jpg")
                     .frame(width: 2000, height: 3000, alignment: .leading)
                     .position(x: 1300, y: 130)
                 

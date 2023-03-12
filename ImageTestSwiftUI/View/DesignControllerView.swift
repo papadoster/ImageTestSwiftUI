@@ -41,7 +41,7 @@ struct DesignControllerView: View {
                                firstName: firstName,
                                quote: quote)
                     .padding()
-                    .padding(.top, 100)
+                    .padding(.top, 30)
                 
                 VStack(alignment: .leading) {
                     GroupBox {
@@ -89,8 +89,9 @@ struct DesignControllerView: View {
                         
                         Button {
                             
-                            if firstName != "" && secondName != "" {
+                            if firstName != "" || secondName != "" || quote != "" {
                                 if let school = Auth.auth().currentUser?.email {
+                                    
                                     db.collection(school).document(imageName).setData([
                                         "ImageName" : imageName,
                                         "ImageURL" : image,

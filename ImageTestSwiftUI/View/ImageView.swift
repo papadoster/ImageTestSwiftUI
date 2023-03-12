@@ -10,8 +10,8 @@ import SwiftUI
 struct ImageView: View {
     @ObservedObject var urlImageModel: UrlImageModel
     
-    init(urlString: String?) {
-        urlImageModel = UrlImageModel(urlString: urlString)
+    init(urlString: String?, imageName: String?) {
+        urlImageModel = UrlImageModel(urlString: urlString, imageName: imageName)
     }
     
     var body: some View {
@@ -29,6 +29,6 @@ struct ImageView: View {
 
 struct UrlImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(urlString: "https://firebasestorage.googleapis.com/v0/b/imagetestswiftui.appspot.com/o/409a%2Fportraits%2F0921.jpg?alt=media&token=b809d946-f63e-42d9-9012-11972179f8a0")
+        ImageView(urlString: "https://firebasestorage.googleapis.com/v0/b/imagetestswiftui.appspot.com/o/409a%2Fportraits%2F0921.jpg?alt=media&token=b809d946-f63e-42d9-9012-11972179f8a0", imageName: "0921.jpg")
     }
 }

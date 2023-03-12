@@ -20,8 +20,6 @@
 		7F4A8BAB29B54720002181FF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F4A8BAA29B54720002181FF /* FirebaseFirestoreSwift */; };
 		7F4A8BAD29B54720002181FF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7F4A8BAC29B54720002181FF /* FirebaseStorage */; };
 		7F4A8BAF29B54720002181FF /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7F4A8BAE29B54720002181FF /* FirebaseStorageCombine-Community */; };
-		7F4A8BB129B56156002181FF /* TestImageFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A8BB029B56155002181FF /* TestImageFromFirebase.swift */; };
-		7F4A8BB429B57CC1002181FF /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4A8BB329B57CC1002181FF /* StorageModel.swift */; };
 		7F566B6F29AFFD4500554169 /* ImageTestSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F566B6E29AFFD4500554169 /* ImageTestSwiftUIApp.swift */; };
 		7F566B7129AFFD4500554169 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F566B7029AFFD4500554169 /* ContentView.swift */; };
 		7F566B7329AFFD4700554169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F566B7229AFFD4700554169 /* Assets.xcassets */; };
@@ -36,8 +34,6 @@
 		7F4A8B7F29B2BEA4002181FF /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		7F4A8B8E29B53A15002181FF /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		7F4A8B9B29B5465A002181FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7F4A8BB029B56155002181FF /* TestImageFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImageFromFirebase.swift; sourceTree = "<group>"; };
-		7F4A8BB329B57CC1002181FF /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
 		7F566B6B29AFFD4500554169 /* ImageTestSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTestSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F566B6E29AFFD4500554169 /* ImageTestSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTestSwiftUIApp.swift; sourceTree = "<group>"; };
 		7F566B7029AFFD4500554169 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				7F4A8B7D29B2BAEB002181FF /* ImageModel.swift */,
-				7F4A8BB329B57CC1002181FF /* StorageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,7 +128,6 @@
 				7F83A69B29B274840084D104 /* DesignBigView.swift */,
 				7F83A69E29B299210084D104 /* DesignMiniView.swift */,
 				7F4A8B7F29B2BEA4002181FF /* ImageView.swift */,
-				7F4A8BB029B56155002181FF /* TestImageFromFirebase.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,8 +222,6 @@
 				7F566B7129AFFD4500554169 /* ContentView.swift in Sources */,
 				7F83A69C29B274840084D104 /* DesignBigView.swift in Sources */,
 				7F83A69F29B299210084D104 /* DesignMiniView.swift in Sources */,
-				7F4A8BB429B57CC1002181FF /* StorageModel.swift in Sources */,
-				7F4A8BB129B56156002181FF /* TestImageFromFirebase.swift in Sources */,
 				7F566B6F29AFFD4500554169 /* ImageTestSwiftUIApp.swift in Sources */,
 				7F4A8B8F29B53A15002181FF /* LogInView.swift in Sources */,
 				7F4A8B7E29B2BAEB002181FF /* ImageModel.swift in Sources */,

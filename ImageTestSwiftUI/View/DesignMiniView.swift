@@ -57,7 +57,7 @@ struct DesignMiniView: View {
 //                          .aspectRatio(contentMode: .fit)
             
             HStack {
-                ImageView(urlString: image)
+                ImageView(urlString: image, imageName: imageName)
                     .frame(height: 200)
                     .offset(x: -50, y: -0)
                     .padding(.leading, 20)
@@ -67,7 +67,7 @@ struct DesignMiniView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     Spacer()
                     HStack {
-                        Text(quote.isEmpty ? quoteSaved : quote)
+                        Text(quote.isEmpty ? (quoteSaved.isEmpty ? "Мечты сбываются, только если ты идëшь им навстречу с открытыми глазами" : quoteSaved) : quote)
                             .font(.system(size: 6))
                             .multilineTextAlignment(.leading)
                             .foregroundColor(.black)
@@ -79,11 +79,11 @@ struct DesignMiniView: View {
                     Spacer()
                     
                     VStack(alignment: .leading) {
-                        Text(firstName.isEmpty ? firstNameSaved.uppercased() : firstName.uppercased())
+                        Text(firstName.isEmpty ? (firstNameSaved.isEmpty ? "ИМЯ" : firstNameSaved.uppercased()) : firstName.uppercased())
                             .font(.system(size: 12))
                             .fontWeight(.heavy)
                             .foregroundColor(.black)
-                        Text(secondName.isEmpty ? secondNameSaved.uppercased() : secondName.uppercased())
+                        Text(secondName.isEmpty ? (secondNameSaved.isEmpty ? "ФАМИЛИЯ" : secondNameSaved.uppercased()) : secondName.uppercased())
                             .font(.system(size: 12))
                             .fontWeight(.heavy)
                             .foregroundColor(.black)

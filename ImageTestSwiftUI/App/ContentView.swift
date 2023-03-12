@@ -35,7 +35,7 @@ struct ContentView: View {
                     LazyVGrid(columns: gridLayout) {
                         ForEach(filepathsKeys, id: \.self) { image in
                             NavigationLink(destination: DesignControllerView(image: filepaths[image]!, imageName: image)) {
-                                ImageView(urlString: filepaths[image])
+                                ImageView(urlString: filepaths[image], imageName: image)
                                     .cornerRadius(8)
                                 
                             }
